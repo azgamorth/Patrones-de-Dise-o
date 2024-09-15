@@ -1,0 +1,35 @@
+public interface Reserva {
+    void describir();
+}
+
+public class ReservaBasica implements Reserva {
+    @Override
+    public void describir() {
+        System.out.println("Reserva básica realizada.");
+    }
+}
+
+public abstract class ReservaDecorador implements Reserva {
+    protected Reserva reserva;
+
+    public ReservaDecorador(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
+    @Override
+    public void describir() {
+        this.reserva.describir();
+    }
+}
+
+public class Seguro extends ReservaDecorador {
+    public Seguro(Reserva reserva) {
+        super(reserva);
+    }
+
+    @Override
+    public void describir() {
+        reserva.describir();
+        System.out.println("Se ha añadido seguro de viaje.");
+    }
+}
