@@ -1,0 +1,22 @@
+public interface SistemaReservas {
+    void hacerReserva();
+}
+
+public class SistemaVuelos {
+    public void reservarVuelo() {
+        System.out.println("Reserva de vuelo realizada.");
+    }
+}
+
+public class AdaptadorVuelos implements SistemaReservas {
+    private SistemaVuelos sistemaVuelos;
+
+    public AdaptadorVuelos(SistemaVuelos vuelos) {
+        this.sistemaVuelos = vuelos;
+    }
+
+    @Override
+    public void hacerReserva() {
+        sistemaVuelos.reservarVuelo();
+    }
+}
