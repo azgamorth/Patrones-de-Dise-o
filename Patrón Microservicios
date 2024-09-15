@@ -1,0 +1,35 @@
+// Ejemplo del Servicio de Reservas
+@RestController
+@RequestMapping("/reservas")
+public class ReservaController {
+
+    @PostMapping("/crear")
+    public ResponseEntity<String> crearReserva(@RequestBody Reserva reserva) {
+        // Lógica de negocio para crear una reserva
+        return ResponseEntity.ok("Reserva creada con éxito");
+    }
+}
+
+// Ejemplo del Servicio de Pagos
+@RestController
+@RequestMapping("/pagos")
+public class PagoController {
+
+    @PostMapping("/procesar")
+    public ResponseEntity<String> procesarPago(@RequestBody Pago pago) {
+        // Lógica de negocio para procesar un pago
+        return ResponseEntity.ok("Pago procesado con éxito");
+    }
+}
+
+// Ejemplo del Servicio de Notificaciones
+@RestController
+@RequestMapping("/notificaciones")
+public class NotificacionController {
+
+    @PostMapping("/enviar")
+    public ResponseEntity<String> enviarNotificacion(@RequestBody Notificacion notificacion) {
+        // Lógica de negocio para enviar una notificación
+        return ResponseEntity.ok("Notificación enviada con éxito");
+    }
+}
